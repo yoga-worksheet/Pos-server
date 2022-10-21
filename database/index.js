@@ -1,7 +1,14 @@
 const mongoose = require("mongoose");
-const { dbHost, dbPort, dbUser, dbPass, dbName } = require("../app/config");
+const {
+	dbHost,
+	dbPort,
+	dbUser,
+	dbPass,
+	dbName,
+	mongoUri,
+} = require("../app/config");
 // const URI = `mongodb+srv://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}?authSource=admin`;
-const URI = `mongodb+srv://${dbUser}:${dbPass}@${dbHost}/?retryWrites=true&w=majority`;
+const URI = mongoUri;
 
 mongoose.connect(URI);
 const db = mongoose.connection;

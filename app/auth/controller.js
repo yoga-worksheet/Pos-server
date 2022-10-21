@@ -8,6 +8,7 @@ const { getToken } = require("../../utils");
 const register = async (req, res, next) => {
 	try {
 		const payload = req.body;
+		return res.json(payload);
 		const user = new User(payload);
 		await user.save();
 		return res.json(user);

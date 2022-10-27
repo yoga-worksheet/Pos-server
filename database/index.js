@@ -7,7 +7,7 @@ const {
 	dbName,
 	mongoUri,
 } = require("../app/config");
-// const URI = `mongodb+srv://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}?authSource=admin`;
+// const URI = `mongodb://${dbUser}:${dbPass}@${dbHost}:${dbPort}/${dbName}?authSource=admin`;
 const URI = mongoUri;
 
 mongoose.connect(URI);

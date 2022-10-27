@@ -38,7 +38,7 @@ app.use("/api", deliveryAddressRoute);
 app.use("/api", cartRoute);
 app.use("/api", orderRoute);
 app.use("/api", invoiceRoute);
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
 	res.json({
 		message: "Hello to POS API Service"
 	})

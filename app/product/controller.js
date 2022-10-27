@@ -62,6 +62,17 @@ const index = async (req, res, next) => {
 	}
 };
 
+const find = async (req, res, next) => {
+	try {
+		const products = await Product.findById(req.params.id)
+			.populate("category")
+			.populate("tags");
+		return res.json(products);
+	} catch (error) {
+		next(error);
+	}
+};
+
 const store = async (req, res, next) => {
 	try {
 		let payload = req.body;
@@ -242,6 +253,7 @@ const destroy = async (req, res, next) => {
 
 module.exports = {
 	store,
+	find,
 	index,
 	update,
 	destroy,

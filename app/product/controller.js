@@ -48,8 +48,6 @@ const index = async (req, res, next) => {
 			}
 		}
 
-		console.log(criteria);
-
 		const product = await Product.find(criteria)
 			.skip(parseInt(skip))
 			.limit(parseInt(limit))

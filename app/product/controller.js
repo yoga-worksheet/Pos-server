@@ -48,6 +48,7 @@ const index = async (req, res, next) => {
 			}
 		}
 
+		const count = await Product.find(criteria).countDocuments();
 		const product = await Product.find(criteria)
 			.skip(parseInt(skip))
 			.limit(parseInt(limit))
@@ -55,7 +56,7 @@ const index = async (req, res, next) => {
 			.populate("tags");
 		return res.json({
 			data: product,
-			count: product.length,
+			count,
 		});
 	} catch (error) {
 		next(error);

@@ -42,7 +42,7 @@ const store = async (req, res, next) => {
 			});
 		}
 		let order = new Order({
-			_id: Types.ObjectId,
+			_id: Types.ObjectId(),
 			status: "waiting_payment",
 			user: req.user,
 			delivery_address: {

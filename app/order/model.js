@@ -58,16 +58,16 @@ orderSchema.virtual("items_count").get(function () {
 });
 orderSchema.post("save", async function () {
 	let sub_total = this.order_items.reduce(
-		(total, item) => (
-			(total += parseInt(item.qty) * parseInt(item.price)), 0
-		)
+		(total, item) => (total += parseInt(item.qty) * parseInt(item.price)),
+		0
 	);
+	console.log(sub_total);
 	let invoice = new Invoice({
 		user: this.user,
 		order: this._id,
 		sub_total: sub_total,
 		delivery_fee: parseInt(this.delivery_fee),
-		total: parseInt(sub_total * this.delivery_fee),
+		total: parseInt(sub_total + this.delivery_fee),
 		delivery_address: this.delivery_address,
 	});
 	await invoice.save();

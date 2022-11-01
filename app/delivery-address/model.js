@@ -8,24 +8,36 @@ const deliveryAddressSchema = Schema(
 			maxLength: [255, "Name must be less than 255 character"],
 		},
 		kelurahan: {
-			type: String,
-			required: [true, "Kelurahan cannot be empty"],
-			maxLength: [255, "Kelurahan must be less than 255 character"],
+			id: String,
+			name: {
+				type: String,
+				required: [true, "Kelurahan cannot be empty"],
+				maxLength: [255, "Kelurahan must be less than 255 character"],
+			},
 		},
 		kecamatan: {
-			type: String,
-			required: [true, "Kecamatan cannot be empty"],
-			maxLength: [255, "Kecamatan must be less than 255 character"],
+			id: String,
+			name: {
+				type: String,
+				required: [true, "Kecamatan cannot be empty"],
+				maxLength: [255, "Kecamatan must be less than 255 character"],
+			},
 		},
 		kabupaten: {
-			type: String,
-			required: [true, "Kabupaten cannot be empty"],
-			maxLength: [255, "Kabupaten must be less than 255 character"],
+			id: String,
+			name: {
+				type: String,
+				required: [true, "Kabupaten cannot be empty"],
+				maxLength: [255, "Kabupaten must be less than 255 character"],
+			},
 		},
 		provinsi: {
-			type: String,
-			required: [true, "Provinsi cannot be empty"],
-			maxLength: [255, "Provinsi must be less than 255 character"],
+			id: String,
+			name: {
+				type: String,
+				required: [true, "Kelurahan cannot be empty"],
+				maxLength: [255, "Kelurahan must be less than 255 character"],
+			},
 		},
 		detail: {
 			type: String,

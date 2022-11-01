@@ -46,10 +46,22 @@ const store = async (req, res, next) => {
 			status: "waiting_payment",
 			user: req.user,
 			delivery_address: {
-				provinsi: address.provinsi,
-				kabupaten: address.kabupaten,
-				kecamatan: address.kecamatan,
-				kelurahan: address.kelurahan,
+				provinsi: {
+					id: address.provinsi.id,
+					name: address.provinsi.name,
+				},
+				kabupaten: {
+					id: address.kabupaten.id,
+					name: address.kabupaten.name,
+				},
+				kecamatan: {
+					id: address.kecamatan.id,
+					name: address.kecamatan.name,
+				},
+				kelurahan: {
+					id: address.kelurahan.id,
+					name: address.kelurahan.name,
+				},
 				detail: address.detail,
 			},
 			delivery_fee,

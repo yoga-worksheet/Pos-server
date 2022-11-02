@@ -8,6 +8,10 @@ const tagSchema = Schema({
 		maxLength: [20, "Tag must be less than 20 characters"],
 		required: [true, "Tag cannot be empty"],
 	},
+	category: {
+		type: Schema.Types.ObjectId,
+		ref: "Category",
+	},
 });
 
 module.exports = model("Tag", tagSchema);

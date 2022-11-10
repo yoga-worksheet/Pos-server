@@ -6,20 +6,6 @@
             "use": "@vercel/node"
         }
     ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/",
-            "methods": [
-                "GET",
-                "POST",
-                "PUT",
-                "PATCH",
-                "OPTIONS",
-                "DELETE"
-              ]
-        }
-    ],
     "headers": [
         {
           "source": "/(.*)",

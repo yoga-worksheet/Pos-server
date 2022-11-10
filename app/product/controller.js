@@ -53,7 +53,8 @@ const index = async (req, res, next) => {
 			.skip(parseInt(skip))
 			.limit(parseInt(limit))
 			.populate("category")
-			.populate("tags");
+			.populate("tags")
+			.sort("-createdAt");
 		return res.json({
 			data: product,
 			count,

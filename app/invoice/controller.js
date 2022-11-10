@@ -8,7 +8,10 @@ const index = async (req, res, next) => {
 		const policy = policyFor(req.user);
 		const invoice = await Invoice.findOne({ order: order_id })
 			.populate("user")
-			.populate("order");
+			.populate({
+				path: "order",
+				populate: { path: "order_items" },
+			});
 		const subjectInvoice = subject("Invoice", {
 			...invoice,
 			user_id: invoice.user._id,

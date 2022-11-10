@@ -3,7 +3,7 @@ const { model, Schema } = require("mongoose");
 const orderItemSchema = Schema({
 	name: {
 		type: String,
-		minLength: [5, "Name must be more than 5 character"],
+		minLength: [3, "Name must be more than 3 character"],
 		required: [true, "Name cannot be empty"],
 	},
 	price: {

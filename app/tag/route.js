@@ -4,6 +4,7 @@ const router = express.Router();
 const tagController = require("./controller");
 
 router.get("/tags", tagController.index);
+router.get("/tags/:category_id", tagController.find);
 router.post("/tag", policyCheck("create", "Tag"), tagController.store);
 router.put("/tag/:id", policyCheck("update", "Tag"), tagController.update);
 router.delete("/tag/:id", policyCheck("delete", "Tag"), tagController.destroy);

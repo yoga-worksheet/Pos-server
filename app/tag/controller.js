@@ -2,10 +2,17 @@ const Tag = require("./model");
 
 const index = async (req, res, next) => {
 	try {
-		const { category = null } = req.query;
-		const tags = await Tag.find({
-			category: { $regex: "${category}", $options: "i" },
-		});
+		const tags = await Tag.find();
+		return res.json(tags);
+	} catch (error) {
+		next(error);
+	}
+};
+
+const find = async (req, res, next) => {
+	try {
+		const { category_id } = req.params;
+		const tags = await Tag.find({ category: category_id });
 		return res.json(tags);
 	} catch (error) {
 		next(error);
@@ -62,6 +69,7 @@ const destroy = async (req, res, next) => {
 
 module.exports = {
 	index,
+	find,
 	store,
 	update,
 	destroy,
